@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Ian Lucas Paim</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX</title>
+    <!-- Adicionando o Bootstrap via CDN para facilitar -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+           margin-bottom: 60px;
+        }
+        .header, .footer {
+            background-color: #dc3545;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        #pixCode {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn-copy {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px 32px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .pix-logo {
+            width: 300px;
+        }
+       .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid header">
+        <h1>Logo da Empresa</h1>
+    </div>
+    <div class="container">
+        <img src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSh-wrQu254qFaRcoYktJ5QmUhmuUedlbeMaQeaozAVD4lh4ICsGdBNubZ8UlMvWjKC" alt="pix qr-code" class="pix-logo mb-4">
+        <p>Copie o código abaixo para realizar o pagamento no App do seu banco</p>
+        <h2>PIX COPIA E COLA</h2>
+        <input id="pixCode" type="text" value="00020126860014br.gov.bcb.pix2564pix-qrcode.sicredi.com.br/qr/v2/37c7cbb2081f447cb6ff6e5c056c8b7b5204000053039865802BR5903PIX6006Cidade62070503*6304F137" readonly>
+        <button class="btn-copy" onclick="copyPixCode()">COPIAR CÓDIGO</button>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="container-fluid footer">
+        <p>© Grupo RazaoInfo <?php echo date("Y"); ?></p>
+    </div>
+
+    <!-- Adicionando o Bootstrap JS via CDN para habilitar funcionalidades como o modal -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function copyPixCode() {
+            var copyText = document.getElementById("pixCode");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            // Utilizando o modal do Bootstrap para mostrar uma mensagem ao usuário
+            $('#successModal').modal('show');
+        }
+    </script>
+
+    <!-- Modal de sucesso -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Código PIX copiado com sucesso!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
